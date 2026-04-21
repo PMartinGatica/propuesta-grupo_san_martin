@@ -1,0 +1,109 @@
+---
+import SectionContainer from '@components/SectionContainer.astro'
+
+const fases = [
+  {
+    num: '1',
+    titulo: 'Diagnóstico + 5S base',
+    descripcion:
+      'Relevamiento operativo, mapeo de procesos críticos y profundización del 5S ya iniciado.',
+    entregables: ['Informe de diagnóstico', 'Mapa de procesos AS-IS', 'Plan de acción 5S'],
+  },
+  {
+    num: '2',
+    titulo: 'Instructivos + Chatbot + Capacitación',
+    descripcion:
+      'Digitalización de procedimientos por rol, deploy del chatbot interno y onboarding del equipo.',
+    entregables: ['Biblioteca de instructivos', 'Asistente interno operativo', 'Sesiones de capacitación'],
+  },
+  {
+    num: '3',
+    titulo: 'Trazabilidad + KPIs auditables',
+    descripcion:
+      'Registros automáticos de cumplimiento, tablero de indicadores y preparación de evidencia.',
+    entregables: ['Dashboard de KPIs', 'Registros digitales', 'Manual de calidad base'],
+  },
+  {
+    num: '4',
+    titulo: 'Mejora continua + Auditoría interna',
+    descripcion:
+      'Ciclos PDCA, auditorías internas y afinado final antes del organismo certificador externo.',
+    entregables: ['Programa de mejora continua', 'Auditorías internas', 'Listo para certificar'],
+  },
+]
+---
+
+<SectionContainer id="roadmap">
+  <div class="flex flex-col gap-3">
+    <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+      Hoja de ruta
+    </span>
+    <h2
+      class="font-display text-3xl leading-tight text-navy sm:text-4xl md:text-5xl"
+      style="text-wrap: balance;"
+    >
+      Del primer sprint a <span class="text-gold">ISO 9001</span>.
+    </h2>
+    <p class="mt-2 max-w-2xl text-base leading-relaxed text-navy/70">
+      Cuatro fases. Cada una construye evidencia auditable. No hace falta certificar
+      todo junto ni hoy — se certifica cuando ustedes decidan.
+    </p>
+  </div>
+
+  <div class="relative mt-12">
+    <div
+      class="pointer-events-none absolute left-6 top-0 hidden h-full w-0.5 bg-gradient-to-b from-teal via-teal/40 to-gold md:block md:left-8"
+    ></div>
+
+    <ol class="flex flex-col gap-6">
+      {
+        fases.map((fase) => (
+          <li class="relative flex gap-5 rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 md:gap-8 md:p-8 md:pl-20">
+            <div
+              class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal to-navy font-display text-xl font-bold text-white shadow-lg md:absolute md:left-2 md:top-1/2 md:h-14 md:w-14 md:-translate-y-1/2 md:text-2xl"
+            >
+              {fase.num}
+            </div>
+
+            <div class="flex-1">
+              <h3 class="font-display text-xl text-navy md:text-2xl">
+                Fase {fase.num}: {fase.titulo}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-navy/70">
+                {fase.descripcion}
+              </p>
+
+              <ul class="mt-4 flex flex-wrap gap-2">
+                {fase.entregables.map((e) => (
+                  <li class="rounded-full bg-teal-light px-3 py-1 text-[11px] font-medium text-teal-dark">
+                    {e}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+
+      <li
+        class="relative flex items-center gap-5 rounded-2xl border-2 border-dashed border-gold bg-gold-soft/30 p-6 md:gap-8 md:p-8 md:pl-20"
+      >
+        <div
+          class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-dashed border-gold bg-white font-display text-xl text-gold md:absolute md:left-2 md:top-1/2 md:h-14 md:w-14 md:-translate-y-1/2 md:text-2xl"
+        >
+          ✓
+        </div>
+        <div>
+          <h3 class="font-display text-xl text-navy md:text-2xl">
+            Certificación ISO 9001
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-navy/70">
+            El organismo certificador es externo (IRAM, Bureau Veritas). INSOLVA
+            <strong class="text-navy">prepara</strong>, no certifica. Ustedes deciden
+            cuándo dar el paso.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</SectionContainer>

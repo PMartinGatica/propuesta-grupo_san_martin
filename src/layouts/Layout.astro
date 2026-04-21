@@ -1,0 +1,70 @@
+---
+import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'INSOLVA — Propuesta para Grupo San Martín Farmacias',
+  description = 'Propuesta de servicios de ingeniería para Grupo San Martín Farmacias. Menos quiebres, operación pareja en todas las sucursales y evidencia lista para certificar cuando lo decidan.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0D2B45" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="INSOLVA" />
+
+    <link rel="icon" type="image/png" href="/logo-insolva.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body class="bg-paper text-navy antialiased">
+    <Header />
+    <main class="flex flex-col gap-20 md:gap-28">
+      <slot />
+    </main>
+    <Footer />
+
+    <a
+      href="https://wa.me/5492901641452?text=Hola%20INSOLVA%2C%20quiero%20saber%20m%C3%A1s%20sobre%20la%20propuesta"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Hablar por WhatsApp"
+      class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform duration-300 hover:scale-110 active:scale-95"
+    >
+      <svg viewBox="0 0 24 24" class="h-7 w-7" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.967-.94 1.165-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.884-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.2-.298.299-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347zM12.057 22h-.005a9.87 9.87 0 01-5.03-1.378l-.361-.214-3.74.981.998-3.648-.235-.374A9.86 9.86 0 012.12 12c0-5.459 4.463-9.91 9.931-9.91 2.653 0 5.145 1.034 7.022 2.913A9.794 9.794 0 0122 12c-.003 5.459-4.466 9.91-9.943 9.91zm8.413-18.29A11.815 11.815 0 0012.05.002C5.495.002.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.473-8.413z"/>
+      </svg>
+    </a>
+
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Sora', system-ui, sans-serif;
+      }
+      .font-display {
+        font-family: 'DM Serif Display', Georgia, serif;
+      }
+    </style>
+  </body>
+</html>

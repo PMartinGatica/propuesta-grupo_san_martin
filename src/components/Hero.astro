@@ -1,0 +1,84 @@
+---
+import SectionContainer from '@components/SectionContainer.astro'
+import Button from '@ui/Button.astro'
+import WhatsApp from '@icons/WhatsApp.astro'
+---
+
+<SectionContainer>
+  <div
+    class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy via-navy-soft to-teal-dark px-6 py-14 sm:px-10 sm:py-20 lg:px-16 lg:py-24"
+  >
+    <div class="pointer-events-none absolute inset-0 opacity-30">
+      <div
+        class="absolute -left-20 top-10 h-80 w-80 rounded-full bg-teal/40 blur-3xl"
+      ></div>
+      <div
+        class="absolute -right-10 bottom-0 h-96 w-96 rounded-full bg-gold/20 blur-3xl"
+      ></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-start gap-8 text-white">
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.35em] backdrop-blur-sm sm:text-xs"
+      >
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-gold"></span>
+        Propuesta comercial · Ushuaia · 2026
+      </span>
+
+      <h1
+        class="max-w-4xl font-display text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+        style="text-wrap: balance;"
+      >
+        Convertimos su operación en un <span class="text-gold">sistema auditable</span>.
+      </h1>
+
+      <p class="max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+        Una propuesta concreta para que Grupo San Martín gane rentabilidad, reduzca
+        errores operativos y escale sin perder control — con evidencia ordenada para
+        certificar ISO 9001 cuando lo decidan.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <Button
+          href="#pilares"
+          variant="solid"
+          color="white"
+        >
+          Ver los 3 pilares
+        </Button>
+        <Button
+          href="https://wa.me/5492901641452?text=Hola%20INSOLVA%2C%20quiero%20agendar%20una%20llamada"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="outline"
+          color="white"
+          ariaLabel="Agendar llamada por WhatsApp"
+        >
+          <WhatsApp class="h-4 w-4" />
+          Agendar llamada
+        </Button>
+      </div>
+
+      <dl
+        class="mt-4 grid w-full grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4 sm:gap-6"
+      >
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">Rentabilidad</dt>
+          <dd class="mt-1 text-xl font-semibold text-white sm:text-2xl">Ganar</dd>
+        </div>
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">Error operativo</dt>
+          <dd class="mt-1 text-xl font-semibold text-white sm:text-2xl">Reducir</dd>
+        </div>
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">Escalabilidad</dt>
+          <dd class="mt-1 text-xl font-semibold text-white sm:text-2xl">Aumentar</dd>
+        </div>
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">Destino</dt>
+          <dd class="mt-1 text-xl font-semibold text-white sm:text-2xl">ISO 9001</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</SectionContainer>

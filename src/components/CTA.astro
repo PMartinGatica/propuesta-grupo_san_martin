@@ -1,0 +1,95 @@
+---
+import SectionContainer from '@components/SectionContainer.astro'
+import Button from '@ui/Button.astro'
+import WhatsApp from '@icons/WhatsApp.astro'
+---
+
+<SectionContainer id="contacto">
+  <div
+    class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy via-navy-soft to-teal-dark px-6 py-14 sm:px-10 sm:py-20 lg:px-16 lg:py-24"
+  >
+    <div class="pointer-events-none absolute inset-0 opacity-30">
+      <div
+        class="absolute -right-20 top-0 h-80 w-80 rounded-full bg-teal/40 blur-3xl"
+      ></div>
+      <div
+        class="absolute -left-10 bottom-0 h-72 w-72 rounded-full bg-gold/30 blur-3xl"
+      ></div>
+    </div>
+
+    <div
+      class="relative z-10 flex flex-col items-start gap-6 text-white md:items-center md:text-center"
+    >
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.35em]"
+      >
+        Próximo paso
+      </span>
+
+      <h2
+        class="max-w-3xl font-display text-3xl leading-tight sm:text-4xl md:text-5xl"
+        style="text-wrap: balance;"
+      >
+        Léanla, analícenla. Cuando <span class="text-gold">les cierre</span>, hablamos.
+      </h2>
+
+      <p class="max-w-2xl text-base leading-relaxed text-white/75">
+        Si la propuesta les suma, coordinamos detalles del primer sprint. Si hay algo
+        para ajustar, también. Estamos a un mensaje.
+      </p>
+
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+        <Button
+          href="https://wa.me/5492901641452?text=Hola%20INSOLVA%2C%20quiero%20revisar%20detalles%20de%20la%20propuesta"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="solid"
+          color="white"
+          ariaLabel="Revisar propuesta por WhatsApp"
+        >
+          <WhatsApp class="h-4 w-4" />
+          Revisar la propuesta
+        </Button>
+        <Button
+          href="mailto:contacto@insolvagroup.com?subject=Propuesta%20Grupo%20San%20Mart%C3%ADn"
+          variant="outline"
+          color="white"
+        >
+          contacto@insolvagroup.com
+        </Button>
+      </div>
+
+      <div
+        class="mt-10 max-w-3xl rounded-2xl border border-white/15 bg-white/5 px-6 py-5 text-left backdrop-blur-sm md:text-center"
+      >
+        <p class="text-[10px] font-bold uppercase tracking-[0.35em] text-gold">
+          Para una próxima charla
+        </p>
+        <p class="mt-2 text-sm leading-relaxed text-white/80">
+          Con lo que nos comentaron sobre pérdidas por sustracciones, queremos traerles
+          una propuesta complementaria de seguridad con visión por IA: detección de
+          zonas de calor, patrones de movimiento y alertas tempranas sobre puntos
+          críticos. Lo dejamos acá como título — si les interesa, lo profundizamos
+          aparte.
+        </p>
+      </div>
+
+      <dl
+        class="mt-8 grid w-full max-w-3xl grid-cols-1 gap-4 border-t border-white/10 pt-8 sm:grid-cols-3 md:gap-8"
+      >
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">WhatsApp</dt>
+          <dd class="mt-1 text-lg font-semibold">+54 9 2901 64-1452</dd>
+        </div>
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">Email</dt>
+          <dd class="mt-1 text-lg font-semibold">contacto@insolvagroup.com</dd>
+        </div>
+        <div>
+          <dt class="text-[10px] uppercase tracking-[0.3em] text-white/50">Web</dt>
+          <dd class="mt-1 text-lg font-semibold">insolvagroup.com</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</SectionContainer>

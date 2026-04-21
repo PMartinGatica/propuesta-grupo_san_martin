@@ -1,0 +1,53 @@
+---
+interface Props {
+  href?: string
+  as?: 'a' | 'button'
+  variant?: 'solid' | 'ghost' | 'outline'
+  color?: 'teal' | 'navy' | 'white'
+  class?: string
+  target?: string
+  rel?: string
+  ariaLabel?: string
+}
+
+const {
+  href,
+  as = href ? 'a' : 'button',
+  variant = 'solid',
+  color = 'teal',
+  class: className,
+  target,
+  rel,
+  ariaLabel,
+} = Astro.props
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-[0.35px] transition-all duration-300 hover:scale-105 active:scale-[0.98]'
+
+const styles = {
+  'solid-teal': 'bg-teal text-white hover:bg-teal-dark shadow-md shadow-teal/30',
+  'solid-navy': 'bg-navy text-white hover:bg-navy-soft shadow-md shadow-navy/30',
+  'solid-white': 'bg-white text-navy hover:bg-teal-light shadow-md',
+  'ghost-teal': 'bg-transparent text-teal hover:bg-teal-light',
+  'ghost-navy': 'bg-transparent text-navy hover:bg-navy/5',
+  'ghost-white': 'bg-transparent text-white hover:bg-white/10',
+  'outline-teal': 'border border-teal text-teal hover:bg-teal hover:text-white',
+  'outline-navy': 'border border-navy text-navy hover:bg-navy hover:text-white',
+  'outline-white': 'border border-white text-white hover:bg-white hover:text-navy',
+}
+
+const key = `${variant}-${color}` as keyof typeof styles
+const classes = [base, styles[key], className]
+---
+
+{
+  as === 'a' ? (
+    <a href={href} target={target} rel={rel} aria-label={ariaLabel} class:list={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button type="button" aria-label={ariaLabel} class:list={classes}>
+      <slot />
+    </button>
+  )
+}

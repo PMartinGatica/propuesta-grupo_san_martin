@@ -1,0 +1,98 @@
+---
+import SectionContainer from '@components/SectionContainer.astro'
+
+const detalles = [
+  {
+    id: 'pilar-1',
+    numero: '01',
+    titulo: 'Optimización de Procesos',
+    bajada: 'Rediseño del flujo de recepción y almacenamiento de mercadería.',
+    cuerpo:
+      'Revisamos el circuito desde que la mercadería llega a la sucursal hasta que queda disponible en el punto de venta. Identificamos los puntos donde hoy se pierde tiempo o se generan quiebres, y ajustamos layout, secuencia de tareas y chequeos clave.',
+    resultado:
+      'Picking más rápido, reposición más precisa, menos quiebres de stock evitables y menor merma por errores de manejo.',
+    icon: '⚙️',
+  },
+  {
+    id: 'pilar-2',
+    numero: '02',
+    titulo: 'Estandarización y Trazabilidad',
+    bajada: 'Instructivos digitales por rol con registro automático de cumplimiento.',
+    cuerpo:
+      'Cada empleado accede desde su celular al procedimiento vigente de su área: apertura, cierre, recepción, devoluciones, control de temperatura. Cada paso completado queda registrado con fecha, hora y usuario — listo para auditoría.',
+    resultado:
+      'Cero dependencia de "quién está en turno". Toda acción operativa queda documentada como evidencia.',
+    icon: '📋',
+  },
+  {
+    id: 'pilar-3',
+    numero: '03',
+    titulo: 'Automatización Inteligente',
+    bajada: 'Asistente interno operativo para el equipo de sucursales.',
+    cuerpo:
+      'Un empleado pregunta por WhatsApp: "¿cómo proceso una devolución de vencido?" y recibe el protocolo actualizado al instante. Si el procedimiento cambia, se edita una vez y queda vigente para toda la cadena.',
+    resultado:
+      'Capacitación continua sin depender de reuniones. Menos errores por desconocimiento del protocolo.',
+    icon: '🤖',
+  },
+]
+---
+
+<SectionContainer id="pilares-detalle">
+  <div class="flex flex-col gap-3">
+    <span class="text-xs font-semibold uppercase tracking-[0.3em] text-teal">
+      Ejemplos concretos
+    </span>
+    <h2
+      class="font-display text-3xl leading-tight text-navy sm:text-4xl md:text-5xl"
+      style="text-wrap: balance;"
+    >
+      Cómo se ve cada pilar <span class="text-teal">aplicado a la operación</span>.
+    </h2>
+  </div>
+
+  <div class="mt-12 flex flex-col gap-8">
+    {
+      detalles.map((d, i) => (
+        <article
+          class:list={[
+            'grid gap-8 rounded-2xl border border-navy/10 bg-white p-6 shadow-sm md:grid-cols-2 md:gap-12 md:p-10',
+            i % 2 === 1 ? 'md:[&>div:first-child]:order-2' : '',
+          ]}
+        >
+          <div>
+            <div class="flex items-center gap-4">
+              <span
+                class="flex h-14 w-14 items-center justify-center rounded-xl bg-teal-light text-2xl"
+              >
+                {d.icon}
+              </span>
+              <div>
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-teal">
+                  Pilar {d.numero}
+                </span>
+                <h3 class="mt-1 font-display text-2xl text-navy md:text-3xl">
+                  {d.titulo}
+                </h3>
+              </div>
+            </div>
+
+            <p class="mt-6 text-lg font-semibold text-navy" style="text-wrap: balance;">
+              {d.bajada}
+            </p>
+            <p class="mt-4 text-sm leading-relaxed text-navy/70">{d.cuerpo}</p>
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <div class="rounded-xl border border-teal/20 bg-teal-light/50 p-5">
+              <h4 class="text-[11px] font-bold uppercase tracking-[0.3em] text-teal-dark">
+                Resultado esperado
+              </h4>
+              <p class="mt-2 text-sm leading-relaxed text-navy/80">{d.resultado}</p>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</SectionContainer>

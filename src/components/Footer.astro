@@ -1,0 +1,51 @@
+---
+const links = [
+  { label: 'Mejoras', href: '#contexto' },
+  { label: 'Pilares', href: '#pilares' },
+  { label: 'Ejemplos', href: '#pilares-detalle' },
+  { label: 'Roadmap', href: '#roadmap' },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Contacto', href: '#contacto' },
+]
+---
+
+<footer class="mt-12 border-t border-navy/10 bg-white">
+  <div
+    class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6 lg:px-8 md:flex-row md:items-center md:justify-between"
+  >
+    <div class="flex items-center gap-4">
+      <div class="flex items-center rounded-md bg-white p-1">
+        <img src="/logo-insolva.png" alt="INSOLVA" class="h-8 w-auto" />
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-navy">INSOLVA</p>
+        <p class="text-xs text-navy/60">
+          Agencia de ingeniería — optimización con base tecnológica · Ushuaia, TDF
+        </p>
+      </div>
+    </div>
+
+    <nav aria-label="Navegación del pie">
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-navy/70">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} class="transition-colors hover:text-teal">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="border-t border-navy/10">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-[11px] text-navy/50 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
+    >
+      <p>© 2026 INSOLVA · Propuesta confidencial para Grupo San Martín Farmacias</p>
+      <p>insolvagroup.com · contacto@insolvagroup.com · +54 9 2901 64-1452</p>
+    </div>
+  </div>
+</footer>
